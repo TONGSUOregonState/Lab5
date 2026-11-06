@@ -1,0 +1,168 @@
+\documentclass[11pt,letterpaper]{article}
+\usepackage[margin=0.85in]{geometry}
+\usepackage{amsmath,amssymb}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\pagestyle{fancy}\fancyhf{}
+\fancyhead[L]{ENGR 202\quad Lab 5}\fancyhead[R]{Group 35}
+\fancyfoot[C]{\thepage}
+\setlength{\headheight}{14pt}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
+\newcommand{\Vs}{\widetilde V_s}
+\newcommand{\Vz}{\widetilde V_z}
+\newcommand{\Vk}{\widetilde V_{1k}}
+\begin{document}
+\begin{center}
+{\Large\bfseries Lab 5 Analytical Predictions}\\[5pt]
+Mystery Box Challenge Part 1\\
+Tong Su, Carter Flynn Swanson, Zachary Kramer
+\end{center}
+\section*{Circuit and phasor conventions}
+The supplied schematic has a known resistor $R_0=1000\,\Omega$ in series
+with the mystery-box impedance $Z$. Channel 2 measures the source voltage;
+Channel 1 measures the voltage across the mystery box. Thus
+\[
+\Vs=\widetilde V_{\mathrm{Ch2}},\qquad
+\Vz=\widetilde V_{\mathrm{Ch1}},\qquad
+\Vk=\widetilde V_{\mathrm{Ch2}}-\widetilde V_{\mathrm{Ch1}}.
+\]
+Use the cosine convention $v(t)=\operatorname{Re}\{\widetilde V e^{j\omega t}\}$,
+with $\omega=2\pi f>0$. Phasor magnitudes are \textbf{peak amplitudes}, not RMS:
+$\Vs=1\angle0^\circ\,\mathrm V$, corresponding to $2\,\mathrm{V_{pp}}$.
+The components are ideal and their values are positive. Ohm's law gives
+\begin{align}
+\widetilde I&=\frac{\Vs}{R_0+Z}, &
+\Vz&=\Vs\frac{Z}{R_0+Z}, &
+\Vk&=\Vs\frac{R_0}{R_0+Z}. \label{eq:divider}
+\end{align}
+\section*{Q3.1.1 Unknown resistor}
+For a mystery-box resistor $R$, its impedance is $Z=R$. Therefore
+\[
+\widetilde I=\frac{1\,\mathrm V}{R_0+R},\qquad
+\Vz=\frac{R}{R_0+R}\,\mathrm V,\qquad
+\Vk=1\,\mathrm V-\frac{R}{R_0+R}\,\mathrm V
+       =\frac{R_0}{R_0+R}\,\mathrm V.
+\]
+All ratios are positive real numbers, so each voltage has zero phase:
+\begin{align*}
+\boxed{\Vs=1\angle0^\circ\,\mathrm V}\qquad &\text{Channel 2},\\[7pt]
+\boxed{\Vz=\widetilde V_R=\frac{R}{R_0+R}\angle0^\circ\,\mathrm V}
+&\qquad\text{Channel 1},\\[7pt]
+\boxed{\Vk=\frac{R_0}{R_0+R}\angle0^\circ\,\mathrm V}
+&\qquad\text{Channel 2 minus Channel 1}.
+\end{align*}
+Here $R_0=1000\,\Omega$. Both voltages are in phase with the source,
+and their sum is exactly $1\angle0^\circ\,\mathrm V$.
+
+\newpage
+\section*{Q3.1.2 Unknown capacitor}
+For a mystery-box capacitor $C$,
+\[
+Z_C=\frac{1}{j\omega C},\qquad x=\omega R_0 C>0.
+\]
+Substituting into the voltage divider and multiplying numerator and
+denominator by $j\omega C$ gives
+\begin{align*}
+\Vz=\widetilde V_C
+&=(1\,\mathrm V)\frac{1/(j\omega C)}{R_0+1/(j\omega C)}
+=\frac{1}{1+jx}\,\mathrm V\\
+&=\frac{1-jx}{1+x^2}\,\mathrm V.
+\end{align*}
+Using the complex conjugate,
+\[
+|\Vz|^2=\Vz\Vz^*
+=\frac{(1-jx)(1+jx)}{(1+x^2)^2}\,\mathrm V^2
+=\frac{1}{1+x^2}\,\mathrm V^2.
+\]
+The real part is positive and the imaginary part is negative. Hence
+\[
+|\Vz|=\frac{1}{\sqrt{1+x^2}}\,\mathrm V,\qquad
+\arg\Vz=-\tan^{-1}x.
+\]
+The required phasors are
+\[
+\boxed{\Vs=1\angle0^\circ\,\mathrm V},\qquad
+\boxed{\Vz=\widetilde V_C=
+\frac{1}{\sqrt{1+(\omega R_0 C)^2}}
+\angle\!\left[-\tan^{-1}(\omega R_0 C)\right]\,\mathrm V}.
+\]
+\subsection*{Extra credit Voltage across the known resistor}
+Subtract the \emph{complex phasors}, not their magnitudes:
+\begin{align*}
+\Vk&=\Vs-\Vz
+=\left(1-\frac{1}{1+jx}\right)\mathrm V
+=\frac{jx}{1+jx}\,\mathrm V
+=\frac{x^2+jx}{1+x^2}\,\mathrm V,\\
+|\Vk|^2&=\frac{x^4+x^2}{(1+x^2)^2}\,\mathrm V^2
+=\frac{x^2}{1+x^2}\,\mathrm V^2,\\
+\arg\Vk&=90^\circ-\tan^{-1}x.
+\end{align*}
+Therefore, with $R_0=1000\,\Omega$,
+\[
+\boxed{\Vk=\widetilde V_R=
+\frac{\omega R_0 C}{\sqrt{1+(\omega R_0 C)^2}}
+\angle\!\left[90^\circ-\tan^{-1}(\omega R_0 C)\right]\,\mathrm V}.
+\]
+The capacitor voltage lags the source; the known-resistor voltage leads it.
+Their phases differ by $90^\circ$. In these polar answers, inverse tangents
+are evaluated in degrees. At low frequency, $\Vz\to\Vs$ and $\Vk\to0$;
+at high frequency, $\Vz\to0$ and $\Vk\to\Vs$.
+
+\newpage
+\section*{Q3.1.3 Unknown inductor}
+For a mystery-box inductor $L$,
+\[
+Z_L=j\omega L,\qquad y=\frac{\omega L}{R_0}>0.
+\]
+The voltage across the inductor is
+\begin{align*}
+\Vz=\widetilde V_L
+&=(1\,\mathrm V)\frac{j\omega L}{R_0+j\omega L}
+=\frac{jy}{1+jy}\,\mathrm V\\
+&=\frac{jy(1-jy)}{1+y^2}\,\mathrm V
+=\frac{y^2+jy}{1+y^2}\,\mathrm V.
+\end{align*}
+Its magnitude and phase follow from
+\begin{align*}
+|\Vz|^2&=\frac{(y^2+jy)(y^2-jy)}{(1+y^2)^2}\,\mathrm V^2
+=\frac{y^2}{1+y^2}\,\mathrm V^2,\\
+\arg\Vz&=\arg(jy)-\arg(1+jy)
+=90^\circ-\tan^{-1}y.
+\end{align*}
+Thus
+\[
+\boxed{\Vs=1\angle0^\circ\,\mathrm V},\qquad
+\boxed{\Vz=\widetilde V_L=
+\frac{\omega L}{\sqrt{R_0^2+(\omega L)^2}}
+\angle\!\left[90^\circ-\tan^{-1}\!\left(\frac{\omega L}{R_0}\right)\right]\,\mathrm V}.
+\]
+The equivalent positive phase is $\tan^{-1}(R_0/(\omega L))$.
+The worksheet's $V_C$ label in this question is interpreted as $V_L$,
+since the assumed component is an inductor.
+\subsection*{Extra credit Voltage across the known resistor}
+\begin{align*}
+\Vk&=\Vs-\Vz
+=\left(1-\frac{jy}{1+jy}\right)\mathrm V
+=\frac{1}{1+jy}\,\mathrm V
+=\frac{1-jy}{1+y^2}\,\mathrm V,\\
+|\Vk|&=\frac{1}{\sqrt{1+y^2}}\,\mathrm V,\qquad
+\arg\Vk=-\tan^{-1}y.
+\end{align*}
+With $R_0=1000\,\Omega$,
+\[
+\boxed{\Vk=\widetilde V_R=
+\frac{R_0}{\sqrt{R_0^2+(\omega L)^2}}
+\angle\!\left[-\tan^{-1}\!\left(\frac{\omega L}{R_0}\right)\right]\,\mathrm V}.
+\]
+The inductor voltage leads the source; the known-resistor voltage lags it.
+Inverse tangents in the polar answers are in degrees. At low frequency,
+$\Vz\to0$ and $\Vk\to\Vs$; at high frequency,
+$\Vz\to\Vs$ and $\Vk\to0$.
+
+\textbf{Consistency check.} In all three cases,
+$\Vz+\Vk=\Vs$. These are analytical predictions only;
+component identification and experimental verification require measured data.
+\end{document}

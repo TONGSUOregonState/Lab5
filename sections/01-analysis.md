@@ -1,6 +1,10 @@
 # 01-analysis
 
-Status: Not completed. Owner: Unassigned.
+Status: Analytical derivations completed; ready for team review. Owner: Unassigned.
+
+[Read the full worked PDF](../analysis/Lab5_Analytical_Predictions.pdf) | [Edit the LaTeX source](../analysis/Lab5_Analytical_Predictions.tex)
+
+Includes Q3.1.1–Q3.1.3 and both extra-credit resistor-voltage derivations. Uses peak phasors and the supplied schematic. No experimental measurements are claimed.
 
 Text extracted from the original Word document. Figures and original layout remain in [the complete Word file](../original/ENGR202_Lab5_Group35.docx). Original wording is preserved, including template typos.
 
@@ -12,7 +16,7 @@ A schematic of the experimental setup is shown in Figure 1.0.      We can determ
 
 Assume the magic box has a resistor of unknow value inside.     Determine the following Phasors as a function of the unknown resistor value R.    Show all your work.
 
-**Response / evidence:** TODO
+**Response:** See page 1 of the [worked derivations](../analysis/Lab5_Analytical_Predictions.pdf).
 
 Vs = V Channel 2 = 		                 /            .
 
@@ -24,7 +28,7 @@ V1K = V Channel 2 – V Channel 1 =	                 /            .
 
 Assume the magic box has a capacitor of unknow value inside.     Determine the following Phasors as a function of the unknown capacitor value C and frequency (w).   Remember | V | = [V V*]^1/2 if V is a phasor and V* is the complex conjugate.   The complex algebra gets a little messy, but if you go slow and are patient you can grind it out.   The magnitude is a complicated expression, while the phase simplifies to a fair simple expression.     Show all your work.
 
-**Response / evidence:** TODO
+**Response:** See page 2 of the [worked derivations](../analysis/Lab5_Analytical_Predictions.pdf).
 
 Vs = V Channel 2 = 				                                              /            .
 
@@ -36,7 +40,7 @@ Vz = Vc = V Channel 1 = 				                                               /    
 
 Assume the magic box has an inductor of unknow value inside.     Determine the following Phasors as a function of the unknown Inductor value L and frequency (w).    Show all your work.
 
-**Response / evidence:** TODO
+**Response:** See page 3 of the [worked derivations](../analysis/Lab5_Analytical_Predictions.pdf).
 
 Vs = V Channel 2 = 					                                                        /            .
 
