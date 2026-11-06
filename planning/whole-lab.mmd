@@ -1,0 +1,117 @@
+flowchart TD
+    START["Lab 5 · Group 35"]
+    TEAM["Q1.1 · Team details"]
+    R["Q3.1.1 · Resistor derivation"]
+    C["Q3.1.2 · Capacitor derivation"]
+    L["Q3.1.3 · Inductor derivation"]
+    SETUP["Build and verify the circuit"]
+    PHOTO["Q3.2.1 · Photo and TinkerCAD"]
+    FORMULA["Use the matching R, C, or L formula"]
+    START --> TEAM
+    START --> R
+    START --> C
+    START --> L
+    START --> SETUP
+    SETUP --> PHOTO
+    R -.-> FORMULA
+    C -.-> FORMULA
+    L -.-> FORMULA
+
+    subgraph BOX1["Mystery Box 1"]
+        direction TB
+        B11["Q3.3.1 · Identify component type"]
+        B12["Q3.3.2 · Baseline cursor captures"]
+        B13["Q3.3.3 · Baseline phasors"]
+        B14["Q3.3.4 · Value and back-substitution"]
+        B15["Q3.3.5 · Resistor voltage check · EC"]
+        B16["Q3.3.6 · LTspice comparison"]
+        B17["Q3.3.7 · Half-frequency measurements"]
+        B18["Q3.3.8 · Half-frequency component value"]
+        B19["Q3.3.9 · Double-frequency measurements"]
+        B110["Q3.3.10 · Double-frequency component value"]
+        B111["Q3.3.11 · Compare three component estimates"]
+        B112["Q3.3.12 · Gain table and discussion"]
+        B12 --> B13
+        B11 --> B14
+        B13 --> B14
+        B14 --> B15
+        B13 --> B15
+        B14 --> B16
+        B13 --> B16
+        B12 --> B17
+        B12 --> B19
+        B17 --> B18
+        B14 --> B18
+        B19 --> B110
+        B14 --> B110
+        B14 --> B111
+        B18 --> B111
+        B110 --> B111
+        B13 --> B112
+        B17 --> B112
+        B19 --> B112
+    end
+
+    subgraph BOX2["Mystery Box 2"]
+        direction TB
+        B21["Q3.4.1 · Identify component type"]
+        B22["Q3.4.2 · Baseline cursor captures"]
+        B23["Q3.4.3 · Baseline phasors"]
+        B24["Q3.4.4 · Value and back-substitution"]
+        B25["Q3.4.5 · Resistor voltage check · EC"]
+        B26["Q3.4.6 · LTspice comparison"]
+        B27["Q3.4.7 · Half-frequency measurements"]
+        B28["Q3.4.8 · Half-frequency component value"]
+        B29["Q3.4.9 · Double-frequency measurements"]
+        B210["Q3.4.10 · Double-frequency component value"]
+        B211["Q3.4.11 · Compare three component estimates"]
+        B212["Q3.4.12 · Gain table and discussion"]
+        B22 --> B23
+        B21 --> B24
+        B23 --> B24
+        B24 --> B25
+        B23 --> B25
+        B24 --> B26
+        B23 --> B26
+        B22 --> B27
+        B22 --> B29
+        B27 --> B28
+        B24 --> B28
+        B29 --> B210
+        B24 --> B210
+        B24 --> B211
+        B28 --> B211
+        B210 --> B211
+        B23 --> B212
+        B27 --> B212
+        B29 --> B212
+    end
+
+    SETUP --> B11
+    SETUP --> B12
+    SETUP --> B21
+    SETUP --> B22
+    FORMULA --> B14
+    FORMULA --> B24
+    REVIEW["Assemble and review the final Word report"]
+    TEAM --> REVIEW
+    PHOTO --> REVIEW
+    R --> REVIEW
+    C --> REVIEW
+    L --> REVIEW
+    B16 --> REVIEW
+    B111 --> REVIEW
+    B112 --> REVIEW
+    B26 --> REVIEW
+    B211 --> REVIEW
+    B212 --> REVIEW
+    B15 -.-> REVIEW
+    B25 -.-> REVIEW
+    REVIEW --> FINAL["Final report ready for submission"]
+
+    classDef drafted fill:#dbeafe,stroke:#2563eb,color:#172554
+    classDef ready fill:#fef3c7,stroke:#b45309,color:#451a03
+    classDef pending fill:#f1f5f9,stroke:#64748b,color:#0f172a
+    class R,C,L drafted
+    class TEAM,SETUP,PHOTO ready
+    class B11,B12,B13,B14,B15,B16,B17,B18,B19,B110,B111,B112,B21,B22,B23,B24,B25,B26,B27,B28,B29,B210,B211,B212,REVIEW,FINAL pending
