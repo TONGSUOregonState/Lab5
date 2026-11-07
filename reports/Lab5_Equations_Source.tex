@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb}
+\begin{document}
+\[
+V_s=\frac{1.948}{2}\angle 0^\circ=0.974\angle 0^\circ\;\mathrm{V}
+\]
+
+\[
+V_z=\frac{0.897164}{2}\angle(-66.55^\circ)=0.448582\angle(-66.55^\circ)\;\mathrm{V}
+\]
+
+\[
+V_r=\frac{1.718}{2}\angle(+30.36^\circ)=0.859\angle(+30.36^\circ)\;\mathrm{V}
+\]
+
+\[
+\varphi_z=-360^\circ\frac{184.802\;\mu\mathrm{s}}{999.667\;\mu\mathrm{s}}=-66.55^\circ
+\]
+
+\[
+\varphi_r=+360^\circ\frac{84.296\;\mu\mathrm{s}}{999.667\;\mu\mathrm{s}}=+30.36^\circ
+\]
+
+\[
+Z_C=\frac{1}{j\omega C},\qquad H(j\omega)=\frac{V_z}{V_s}=\frac{Z_C}{R+Z_C}=\frac{1}{1+j\omega RC}
+\]
+
+\[
+|H|=\frac{1}{\sqrt{1+(\omega RC)^2}},\qquad\varphi_z=-\arctan(\omega RC)
+\]
+
+\[
+g=\frac{|V_z|}{|V_s|}=\frac{0.897164}{1.948}=0.460556
+\]
+
+\[
+C=\frac{\sqrt{g^{-2}-1}}{2\pi fR}
+\]
+
+\[
+C=\frac{\sqrt{(0.460556)^{-2}-1}}{2\pi\times1000\times1000}=3.06739\times10^{-7}\;\mathrm{F}
+\]
+
+\[
+C\approx306.7\;\mathrm{nF}\approx307\;\mathrm{nF}
+\]
+
+\[
+\varphi_{\mathrm{pred}}=-\arctan(2\pi fRC)
+\]
+
+\[
+\varphi_{\mathrm{pred}}=-\arctan(2\pi\times1000\times1000\times306.739\times10^{-9})
+\]
+
+\[
+\varphi_{\mathrm{pred}}=-62.58^\circ,\qquad\varphi_{\mathrm{meas}}=-66.55^\circ
+\]
+
+\[
+|\Delta\varphi|=|-62.58^\circ-(-66.55^\circ)|=3.97^\circ
+\]
+\end{document}
